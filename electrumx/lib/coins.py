@@ -893,6 +893,29 @@ class LitecoinRegtest(LitecoinTestnet):
     TX_COUNT = 1
     TX_COUNT_HEIGHT = 1
 
+class KHcoin(Coin):
+    NAME = "KHcoin"
+    SHORTNAME = "KHC"
+    NET = "mainnet"
+    XPUB_VERBYTES = bytes.fromhex("019d9cfe")
+    XPRV_VERBYTES = bytes.fromhex("019da462")
+    P2PKH_VERBYTE = bytes.fromhex("30")
+    P2SH_VERBYTES = [bytes.fromhex("32"), bytes.fromhex("05")]
+    WIF_BYTE = bytes.fromhex("b0")
+    GENESIS_HASH = ('880f88fae7fa11cbfd440e4a0a29cb68'
+                    'c190ace7dffe89aec31a963a442aae00')
+    DESERIALIZER = lib_tx.DeserializerSegWit
+    TX_COUNT = 109773
+    TX_COUNT_HEIGHT = 102413
+    TX_PER_BLOCK = 10
+    RPC_PORT = 8850
+    REORG_LIMIT = 800
+    PEER_DEFAULT_PORTS = {'t': '50001', 's': '50002'}
+    PEERS = [
+        'electrum.khcoin.inmean.com s t',
+        'electrum.khcoinproject.com s t',
+        ]
+
 
 class BitcoinCashRegtest(BitcoinTestnetMixin, Coin):
     NAME = "BitcoinCashABC"   # Some releases later remove the ABC suffix
